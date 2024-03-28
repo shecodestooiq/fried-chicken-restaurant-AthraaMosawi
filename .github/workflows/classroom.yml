@@ -14,11 +14,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: fried-chicken-restaurant
-      id: fried-chicken-restaurant
+    - name: App.test.js
+      id: app-test-js
       uses: education/autograding-command-grader@v1
       with:
-        test-name: fried-chicken-restaurant
+        test-name: App.test.js
         setup-command: npm install
         command: npm test a
         timeout: 60
@@ -26,6 +26,6 @@ jobs:
     - name: Autograding Reporter
       uses: education/autograding-grading-reporter@v1
       env:
-        FRIED-CHICKEN-RESTAURANT_RESULTS: "${{steps.fried-chicken-restaurant.outputs.result}}"
+        APP-TEST-JS_RESULTS: "${{steps.app-test-js.outputs.result}}"
       with:
-        runners: fried-chicken-restaurant
+        runners: app-test-js
