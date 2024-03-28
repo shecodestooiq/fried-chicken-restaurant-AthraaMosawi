@@ -20,7 +20,7 @@ jobs:
       with:
         test-name: index.test.js
         setup-command: npm install
-        command: npm test a
+        command: npm test
         timeout: 60
         max-score: 100
     - name: Autograding Reporter
