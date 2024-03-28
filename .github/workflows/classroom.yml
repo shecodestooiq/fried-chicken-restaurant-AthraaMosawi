@@ -14,11 +14,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: App.test.js
-      id: app-test-js
+    - name: index.test.js
+      id: index-test-js
       uses: education/autograding-command-grader@v1
       with:
-        test-name: App.test.js
+        test-name: index.test.js
         setup-command: npm install
         command: npm test a
         timeout: 60
@@ -26,6 +26,6 @@ jobs:
     - name: Autograding Reporter
       uses: education/autograding-grading-reporter@v1
       env:
-        APP-TEST-JS_RESULTS: "${{steps.app-test-js.outputs.result}}"
+        INDEX-TEST-JS_RESULTS: "${{steps.index-test-js.outputs.result}}"
       with:
-        runners: app-test-js
+        runners: index-test-js
